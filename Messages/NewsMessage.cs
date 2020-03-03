@@ -142,7 +142,14 @@ namespace StockSharp.Messages
 		/// <summary>
 		/// Language.
 		/// </summary>
+		[DataMember]
 		public string Language { get; set; }
+
+		/// <summary>
+		/// Expiration date.
+		/// </summary>
+		[DataMember]
+		public DateTimeOffset? ExpiryDate { get; set; }
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="NewsMessage"/>.
@@ -155,7 +162,7 @@ namespace StockSharp.Messages
 		/// <inheritdoc />
 		public override string ToString()
 		{
-			return base.ToString() + $",Sec={SecurityId},Head={Headline}";
+			return base.ToString() + $",Time={ServerTime:yyyy/MM/dd HH:mm:ss},Sec={SecurityId},Head={Headline}";
 		}
 
 		/// <inheritdoc />
@@ -173,6 +180,7 @@ namespace StockSharp.Messages
 			destination.Url = Url;
 			destination.Priority = Priority;
 			destination.Language = Language;
+			destination.ExpiryDate = ExpiryDate;
 		}
 	}
 }

@@ -9,9 +9,7 @@ namespace StockSharp.Algo
 	using StockSharp.Algo.Risk;
 	using StockSharp.Algo.Storages;
 	using StockSharp.BusinessEntities;
-#if NETFRAMEWORK
 	using StockSharp.Community;
-#endif
 	using StockSharp.Logging;
 	using StockSharp.Messages;
 
@@ -119,6 +117,11 @@ namespace StockSharp.Algo
 		/// <summary>
 		/// Security native identifier storage.
 		/// </summary>
+		public static INativeIdStorage TryNativeIdStorage => ConfigManager.TryGetService<INativeIdStorage>();
+
+		/// <summary>
+		/// Security native identifier storage.
+		/// </summary>
 		public static INativeIdStorage NativeIdStorage => ConfigManager.GetService<INativeIdStorage>();
 		
 		/// <summary>
@@ -131,7 +134,6 @@ namespace StockSharp.Algo
 		/// </summary>
 		public static IExtendedInfoStorage TryExtendedInfoStorage => ConfigManager.TryGetService<IExtendedInfoStorage>();
 
-#if NETFRAMEWORK
 		/// <summary>
 		/// The client for access to the StockSharp notification service.
 		/// </summary>
@@ -140,7 +142,7 @@ namespace StockSharp.Algo
 		/// <summary>
 		/// The client for access to the StockSharp notification service.
 		/// </summary>
-		public static INotificationClient TryNotificationClient => ConfigManager.GetService<INotificationClient>();
+		public static INotificationClient TryNotificationClient => ConfigManager.TryGetService<INotificationClient>();
 
 		/// <summary>
 		/// The client for access to the service of work with files and documents.
@@ -166,7 +168,6 @@ namespace StockSharp.Algo
 		/// The client for access to the StockSharp authentication service.
 		/// </summary>
 		public static IAuthenticationClient TryAuthenticationClient => ConfigManager.TryGetService<IAuthenticationClient>();
-#endif
 
 		/// <summary>
 		/// The message adapter's provider.
@@ -203,12 +204,10 @@ namespace StockSharp.Algo
 		/// </summary>
 		public static ICompilerService TryCompilerService => ConfigManager.TryGetService<ICompilerService>();
 
-#if NETFRAMEWORK
 		/// <summary>
 		/// Excel provider.
 		/// </summary>
 		public static IExcelWorkerProvider ExcelProvider => ConfigManager.TryGetService<IExcelWorkerProvider>();
-#endif
 
 		/// <summary>
 		/// Snapshot storage registry.
@@ -224,12 +223,5 @@ namespace StockSharp.Algo
 		/// The risks control manager.
 		/// </summary>
 		public static IRiskManager RiskManager => ConfigManager.GetService<IRiskManager>();
-
-#if NETFRAMEWORK
-		/// <summary>
-		/// The client for access to <see cref="IUpdateService"/>.
-		/// </summary>
-		public static IUpdateClient UpdateClient => ConfigManager.GetService<IUpdateClient>();
-#endif
 	}
 }

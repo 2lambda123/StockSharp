@@ -21,7 +21,7 @@ namespace StockSharp.Algo.Export.Database.DbProviders
 	using System.Text;
 
 	using Ecng.Common;
-	using Ecng.Data;
+	using Ecng.Xaml.DevExp.Database;
 
 	internal class SQLiteDbProvider : BaseDbProvider
 	{

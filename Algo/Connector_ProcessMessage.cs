@@ -286,9 +286,9 @@ namespace StockSharp.Algo
 					if (RiskManager != null)
 						_inAdapter = new RiskMessageAdapter(_inAdapter) { RiskManager = RiskManager, OwnInnerAdapter = true };
 
-					if (SecurityStorage != null && StorageRegistry != null && SnapshotRegistry != null)
+					if (SecurityStorage != null && StorageRegistry != null && _adapter.StorageProcessor.SnapshotRegistry != null)
 					{
-						_inAdapter = StorageAdapter = new StorageMetaInfoMessageAdapter(_inAdapter, SecurityStorage, PositionStorage, StorageRegistry.ExchangeInfoProvider, StorageRegistry, SnapshotRegistry, _adapter.CandleBuilderProvider)
+						_inAdapter = StorageAdapter = new StorageMetaInfoMessageAdapter(_inAdapter, SecurityStorage, PositionStorage, StorageRegistry.ExchangeInfoProvider, _adapter.StorageProcessor)
 						{
 							OwnInnerAdapter = true,
 							OverrideSecurityData = OverrideSecurityData
@@ -1349,7 +1349,7 @@ namespace StockSharp.Algo
 			if (message.IsUpTick != null)
 			{
 				info.SetValue(Level1Fields.LastTradeUpDown, message.IsUpTick.Value);
-				changes.Add(new KeyValuePair<Level1Fields, object>(Level1Fields.LastTradeOrigin, message.IsUpTick.Value));
+				changes.Add(new KeyValuePair<Level1Fields, object>(Level1Fields.LastTradeUpDown, message.IsUpTick.Value));
 			}
 
 			if (tuple.Item2)
@@ -1625,6 +1625,13 @@ namespace StockSharp.Algo
 
 					if (order == null)
 					{
+						if (message.SecurityId == default)
+						{
+							this.AddWarningLog(LocalizedStrings.Str1025);
+							this.AddWarningLog(message.ToString());
+							break;
+						}
+
 						security = EnsureGetSecurity(message);
 
 						if (transactionId == 0 && isStatusRequest)

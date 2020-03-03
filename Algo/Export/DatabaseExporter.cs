@@ -19,7 +19,7 @@ namespace StockSharp.Algo.Export
 	using System.Collections.Generic;
 	using System.Linq;
 
-	using Ecng.Data;
+	using Ecng.Xaml.DevExp.Database;
 
 	using MoreLinq;
 

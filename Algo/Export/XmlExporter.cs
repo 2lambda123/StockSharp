@@ -70,6 +70,9 @@ namespace StockSharp.Algo.Export
 						if (trade.IsUpTick != null)
 							writer.WriteAttribute("isUpTick", trade.IsUpTick.Value);
 
+						if (trade.Currency != null)
+							writer.WriteAttribute("currency", trade.Currency.Value);
+
 						writer.WriteEndElement();
 					});
 
@@ -306,6 +309,9 @@ namespace StockSharp.Algo.Export
 
 				if (!n.Language.IsEmpty())
 					writer.WriteAttribute("language", n.Language);
+
+				if (n.ExpiryDate != null)
+					writer.WriteAttribute("expiry", n.ExpiryDate.Value);
 
 				if (!n.Story.IsEmpty())
 					writer.WriteCData(n.Story);

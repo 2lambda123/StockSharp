@@ -34,7 +34,7 @@ namespace StockSharp.Algo.Candles.Compression
 		where TCandleMessage : CandleMessage
 	{
 		/// <inheritdoc />
-		public abstract MarketDataTypes CandleType { get; }
+		public virtual Type CandleType { get; } = typeof(TCandleMessage);
 
 		/// <summary>
 		/// Initialize <see cref="CandleBuilder{TCandleMessage}"/>.
@@ -407,9 +407,6 @@ namespace StockSharp.Algo.Candles.Compression
 
 		//private readonly SynchronizedDictionary<CandleSeries, TimeoutInfo> _timeoutInfos = new SynchronizedDictionary<CandleSeries, TimeoutInfo>();
 
-		/// <inheritdoc />
-		public override MarketDataTypes CandleType => MarketDataTypes.CandleTimeFrame;
-
 		/// <summary>
 		/// Whether to create empty candles (<see cref="CandleStates.None"/>) in the lack of trades. The default mode is enabled.
 		/// </summary>
@@ -492,9 +489,6 @@ namespace StockSharp.Algo.Candles.Compression
 	/// </summary>
 	public class TickCandleBuilder : CandleBuilder<TickCandleMessage>
 	{
-		/// <inheritdoc />
-		public override MarketDataTypes CandleType => MarketDataTypes.CandleTick;
-
 		/// <summary>
 		/// Initializes a new instance of the <see cref="TickCandleBuilder"/>.
 		/// </summary>
@@ -531,9 +525,6 @@ namespace StockSharp.Algo.Candles.Compression
 	/// </summary>
 	public class VolumeCandleBuilder : CandleBuilder<VolumeCandleMessage>
 	{
-		/// <inheritdoc />
-		public override MarketDataTypes CandleType => MarketDataTypes.CandleVolume;
-
 		/// <summary>
 		/// Initializes a new instance of the <see cref="VolumeCandleBuilder"/>.
 		/// </summary>
@@ -570,9 +561,6 @@ namespace StockSharp.Algo.Candles.Compression
 	/// </summary>
 	public class RangeCandleBuilder : CandleBuilder<RangeCandleMessage>
 	{
-		/// <inheritdoc />
-		public override MarketDataTypes CandleType => MarketDataTypes.CandleRange;
-
 		/// <summary>
 		/// Initializes a new instance of the <see cref="RangeCandleBuilder"/>.
 		/// </summary>
@@ -609,9 +597,6 @@ namespace StockSharp.Algo.Candles.Compression
 	/// </summary>
 	public class PnFCandleBuilder : CandleBuilder<PnFCandleMessage>
 	{
-		/// <inheritdoc />
-		public override MarketDataTypes CandleType => MarketDataTypes.CandlePnF;
-
 		/// <summary>
 		/// Initializes a new instance of the <see cref="PnFCandleBuilder"/>.
 		/// </summary>
@@ -764,9 +749,6 @@ namespace StockSharp.Algo.Candles.Compression
 	/// </summary>
 	public class RenkoCandleBuilder : CandleBuilder<RenkoCandleMessage>
 	{
-		/// <inheritdoc />
-		public override MarketDataTypes CandleType => MarketDataTypes.CandleRenko;
-
 		/// <summary>
 		/// Initializes a new instance of the <see cref="RenkoCandleBuilder"/>.
 		/// </summary>
@@ -912,6 +894,63 @@ namespace StockSharp.Algo.Candles.Compression
 			}
 
 			return candle;
+		}
+	}
+
+	/// <summary>
+	/// The builder of candles of <see cref="HeikinAshiCandleBuilder"/> type.
+	/// </summary>
+	public class HeikinAshiCandleBuilder : CandleBuilder<HeikinAshiCandleMessage>
+	{
+		/// <summary>
+		/// Initializes a new instance of the <see cref="HeikinAshiCandleBuilder"/>.
+		/// </summary>
+		/// <param name="exchangeInfoProvider">The exchange boards provider.</param>
+		public HeikinAshiCandleBuilder(IExchangeInfoProvider exchangeInfoProvider)
+			: base(exchangeInfoProvider)
+		{
+		}
+
+		/// <inheritdoc />
+		protected override HeikinAshiCandleMessage CreateCandle(MarketDataMessage message, HeikinAshiCandleMessage currentCandle, ICandleBuilderValueTransform transform)
+		{
+			var timeFrame = message.GetTimeFrame();
+
+			var board = ExchangeInfoProvider.GetOrCreateBoard(message.SecurityId.BoardCode);
+			var bounds = timeFrame.GetCandleBounds(transform.Time, board, board.WorkingTime);
+
+			if (transform.Time < bounds.Min)
+				return null;
+
+			var openTime = bounds.Min;
+
+			var candle = FirstInitCandle(message, new HeikinAshiCandleMessage
+			{
+				TimeFrame = timeFrame,
+				OpenTime = openTime,
+				HighTime = openTime,
+				LowTime = openTime,
+				CloseTime = openTime,
+			}, transform);
+
+			if (currentCandle != null)
+				candle.OpenPrice = (currentCandle.OpenPrice + currentCandle.ClosePrice) / 2M;
+
+			return candle;
+		}
+
+		/// <inheritdoc />
+		protected override bool IsCandleFinishedBeforeChange(MarketDataMessage message, HeikinAshiCandleMessage candle, ICandleBuilderValueTransform transform)
+		{
+			return transform.Time < candle.OpenTime || (candle.OpenTime + candle.TimeFrame) <= transform.Time;
+		}
+
+		/// <inheritdoc />
+		protected override void UpdateCandle(MarketDataMessage message, HeikinAshiCandleMessage candle, ICandleBuilderValueTransform transform)
+		{
+			base.UpdateCandle(message, candle, transform);
+
+			candle.ClosePrice = (candle.OpenPrice + candle.HighPrice + candle.LowPrice + candle.ClosePrice) / 4M;
 		}
 	}
 }

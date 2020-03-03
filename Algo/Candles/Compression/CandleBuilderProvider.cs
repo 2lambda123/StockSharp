@@ -6,14 +6,13 @@ namespace StockSharp.Algo.Candles.Compression
 
 	using StockSharp.Algo.Storages;
 	using StockSharp.Localization;
-	using StockSharp.Messages;
 
 	/// <summary>
 	/// Candle builders provider.
 	/// </summary>
 	public class CandleBuilderProvider
 	{
-		private readonly SynchronizedDictionary<MarketDataTypes, ICandleBuilder> _builders = new SynchronizedDictionary<MarketDataTypes, ICandleBuilder>();
+		private readonly SynchronizedDictionary<Type, ICandleBuilder> _builders = new SynchronizedDictionary<Type, ICandleBuilder>();
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="CandleBuilderProvider"/>.
@@ -29,6 +28,7 @@ namespace StockSharp.Algo.Candles.Compression
 			Register(new RangeCandleBuilder(exchangeInfoProvider));
 			Register(new RenkoCandleBuilder(exchangeInfoProvider));
 			Register(new PnFCandleBuilder(exchangeInfoProvider));
+			Register(new HeikinAshiCandleBuilder(exchangeInfoProvider));
 		}
 
 		/// <summary>
@@ -41,14 +41,14 @@ namespace StockSharp.Algo.Candles.Compression
 		/// </summary>
 		/// <param name="type">Market data type.</param>
 		/// <returns><see langword="true" /> if the candle type registered, <see langword="false" /> otherwise.</returns>
-		public bool IsRegistered(MarketDataTypes type) => _builders.ContainsKey(type);
+		public bool IsRegistered(Type type) => _builders.ContainsKey(type);
 
 		/// <summary>
 		/// Get candles builder.
 		/// </summary>
 		/// <param name="type">Market data type.</param>
 		/// <returns>Candles builder.</returns>
-		public ICandleBuilder Get(MarketDataTypes type)
+		public ICandleBuilder Get(Type type)
 		{
 			var builder = _builders.TryGetValue(type);
 

@@ -1343,7 +1343,7 @@ namespace StockSharp.Algo
 				emulator.SendInMessage(regMsg);
 
 				if (errors.Count > 0)
-					throw new AggregateException(errors);
+					throw errors.SingleOrAggr();
 			}
 
 			return trades;
@@ -2594,7 +2594,7 @@ namespace StockSharp.Algo
 							lastTradeChanged = true;
 							break;
 						case Level1Fields.LastTradeOrigin:
-							lastTrade.OrderDirection = (Sides?)value;
+							lastTrade.OrderDirection = (Sides)value;
 							lastTradeChanged = true;
 							break;
 						case Level1Fields.IsSystem:
@@ -5372,6 +5372,19 @@ namespace StockSharp.Algo
 		public static bool IsActive(this SubscriptionStates state)
 		{
 			return state == SubscriptionStates.Active || state == SubscriptionStates.Online;
+		}
+
+		/// <summary>
+		/// Determines whether the specified news related with StockSharp.
+		/// </summary>
+		/// <param name="news">News.</param>
+		/// <returns>Check result.</returns>
+		public static bool IsStockSharp(this News news)
+		{
+			if (news == null)
+				throw new ArgumentNullException(nameof(news));
+
+			return news.Source.CompareIgnoreCase(Messages.Extensions.NewsStockSharpSource);
 		}
 	}
 }

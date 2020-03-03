@@ -306,9 +306,9 @@ namespace StockSharp.Messages
 		AdapterListFinished,
 
 		/// <summary>
-		/// <see cref="AdapterCommandMessage"/>.
+		/// <see cref="CommandMessage"/>.
 		/// </summary>
-		AdapterCommand,
+		Command,
 
 		/// <summary>
 		/// <see cref="AdapterResponseMessage"/>.
@@ -372,6 +372,11 @@ namespace StockSharp.Messages
 		/// <see cref="SubscriptionResponseMessage"/>.
 		/// </summary>
 		SubscriptionResponse,
+
+		/// <summary>
+		/// <see cref="HeikinAshiCandleMessage"/>.
+		/// </summary>
+		CandleHeikinAshi,
 	}
 
 	/// <summary>

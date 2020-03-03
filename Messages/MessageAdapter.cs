@@ -124,11 +124,11 @@ namespace StockSharp.Messages
 			}
 		}
 
-		private IEnumerable<MarketDataTypes> _supportedMarketDataTypes = Enumerable.Empty<MarketDataTypes>();
+		private IEnumerable<DataType> _supportedMarketDataTypes = Enumerable.Empty<DataType>();
 
 		/// <inheritdoc />
 		[Browsable(false)]
-		public virtual IEnumerable<MarketDataTypes> SupportedMarketDataTypes
+		public virtual IEnumerable<DataType> SupportedMarketDataTypes
 		{
 			get => _supportedMarketDataTypes;
 			set
@@ -506,7 +506,7 @@ namespace StockSharp.Messages
 
 		/// <inheritdoc />
 		public virtual TimeSpan GetHistoryStepSize(DataType dataType, out TimeSpan iterationInterval)
-			=> dataType.GetHistoryStepSize(SupportedMarketDataTypes, out iterationInterval);
+			=> Extensions.GetHistoryStepSize(this, dataType, out iterationInterval);
 
 		/// <inheritdoc />
 		public virtual bool IsAllDownloadingSupported(DataType dataType) => false;
@@ -529,7 +529,14 @@ namespace StockSharp.Messages
 			HeartbeatInterval = storage.GetValue<TimeSpan>(nameof(HeartbeatInterval));
 
 			if (storage.ContainsKey(nameof(SupportedInMessages)) || storage.ContainsKey("SupportedMessages"))
-				SupportedInMessages = (storage.GetValue<string[]>(nameof(SupportedInMessages)) ?? storage.GetValue<string[]>("SupportedMessages")).Select(i => i.To<MessageTypes>()).ToArray();
+				SupportedInMessages = (storage.GetValue<string[]>(nameof(SupportedInMessages)) ?? storage.GetValue<string[]>("SupportedMessages")).Select(i =>
+				{
+					// TODO Remove few releases later 2020-02-26
+					if (i == "AdapterCommand")
+						i = "Command";
+
+					return i.To<MessageTypes>();
+				}).ToArray();
 			
 			if (storage.ContainsKey(nameof(ReConnectionSettings)))
 				ReConnectionSettings.Load(storage.GetValue<SettingsStorage>(nameof(ReConnectionSettings)));

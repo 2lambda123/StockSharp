@@ -51116,5 +51116,45 @@ namespace StockSharp.Localization
 		/// Highest last trade volume.
 		/// </summary>
 		public static string LastTradeVolumeHighDesc => GetString(LastTradeVolumeHighDescKey);
+
+		/// <summary>
+		/// Max support version.
+		/// </summary>
+		public const string MaxSupportVersionKey = nameof(MaxSupportVersion);
+
+		/// <summary>
+		/// Max support version.
+		/// </summary>
+		public static string MaxSupportVersion => GetString(MaxSupportVersionKey);
+
+		/// <summary>
+		/// Gaps
+		/// </summary>
+		public const string GapsKey = nameof(Gaps);
+
+		/// <summary>
+		/// Gaps
+		/// </summary>
+		public static string Gaps => GetString(GapsKey);
+
+		/// <summary>
+		/// Make gap in incremental messages for test purpose.
+		/// </summary>
+		public const string GapsDescKey = nameof(GapsDesc);
+
+		/// <summary>
+		/// Make gap in incremental messages for test purpose.
+		/// </summary>
+		public static string GapsDesc => GetString(GapsDescKey);
+
+		/// <summary>
+		/// Heikin Ashi
+		/// </summary>
+		public const string HeikinAshiKey = nameof(HeikinAshi);
+
+		/// <summary>
+		/// Heikin Ashi
+		/// </summary>
+		public static string HeikinAshi => GetString(HeikinAshiKey);
 	}
 }
