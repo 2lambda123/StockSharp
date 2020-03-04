@@ -6,29 +6,29 @@ namespace StockSharp.Algo.Export.Database
 
 	using Ecng.Common;
 
-	using StockSharp.BusinessEntities;
 	using StockSharp.Messages;
 
 	class PositionChangeTable : Table<PositionChangeMessage>
 	{
-		public PositionChangeTable(Security security)
-			: base("PositionChange", CreateColumns(security))
+		public PositionChangeTable(decimal? priceStep, decimal? volumeStep)
+			: base("PositionChange", CreateColumns(priceStep, volumeStep))
 		{
 		}
 
-		private static Type GetDbType(PositionChangeTypes type)
+		private static Type GetDbType(PositionChangeTypes field)
 		{
-			switch (type)
-			{
-				case PositionChangeTypes.State:
-				case PositionChangeTypes.Currency:
-					return typeof(string);
-				default:
-					return typeof(decimal);
-			}
+			var type = field.ToType();
+
+			if (type == null)
+				return null;
+
+			if (type.IsEnum)
+				type = type.GetEnumUnderlyingType();
+
+			return type.IsClass ? type : typeof(Nullable<>).Make(type);
 		}
 
-		private static IEnumerable<ColumnDescription> CreateColumns(Security security)
+		private static IEnumerable<ColumnDescription> CreateColumns(decimal? priceStep, decimal? volumeStep)
 		{
 			yield return new ColumnDescription(nameof(SecurityId.SecurityCode))
 			{
@@ -76,14 +76,14 @@ namespace StockSharp.Algo.Export.Database
 					case PositionChangeTypes.State:
 					case PositionChangeTypes.Currency:
 						break;
-					default:
-						step = security.Multiplier ?? 1;
-						break;
+					//default:
+					//	step = security.Multiplier ?? 1;
+					//	break;
 				}
 
 				yield return new ColumnDescription(type.ToString())
 				{
-					DbType = columnType.IsNullable() ? columnType : typeof(Nullable<>).Make(columnType),
+					DbType = columnType.IsNullable() || columnType.IsClass ? columnType : typeof(Nullable<>).Make(columnType),
 					ValueRestriction = columnType == typeof(decimal) ? new DecimalRestriction { Scale = step.GetCachedDecimals() } : null,
 				};
 			}

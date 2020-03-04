@@ -142,6 +142,8 @@ M:StockSharp.Messages.CandleMessage.CopyTo(StockSharp.Messages.CandleMessage)/re
 M:StockSharp.Messages.CandleMessage.ToString/inheritdoc;DocStr8459
 T:StockSharp.Messages.TimeFrameCandleMessage/summary;DocStr4058
 M:StockSharp.Messages.TimeFrameCandleMessage.#ctor/summary;DocStr1
+M:StockSharp.Messages.TimeFrameCandleMessage.#ctor(StockSharp.Messages.MessageTypes)/summary;DocStr1
+M:StockSharp.Messages.TimeFrameCandleMessage.#ctor(StockSharp.Messages.MessageTypes)/param/type;DocStr9
 P:StockSharp.Messages.TimeFrameCandleMessage.TimeFrame/summary;Str1242
 M:StockSharp.Messages.TimeFrameCandleMessage.Clone/summary;DocStr643
 M:StockSharp.Messages.TimeFrameCandleMessage.Clone/returns;DocStr1116
@@ -190,6 +192,10 @@ M:StockSharp.Messages.RenkoCandleMessage.Clone/summary;DocStr643
 M:StockSharp.Messages.RenkoCandleMessage.Clone/returns;DocStr1116
 P:StockSharp.Messages.RenkoCandleMessage.Arg/inheritdoc;DocStr8459
 M:StockSharp.Messages.RenkoCandleMessage.CloneArg/inheritdoc;DocStr8459
+T:StockSharp.Messages.HeikinAshiCandleMessage/summary;DocStr11682
+M:StockSharp.Messages.HeikinAshiCandleMessage.#ctor/summary;DocStr1
+M:StockSharp.Messages.HeikinAshiCandleMessage.Clone/summary;DocStr643
+M:StockSharp.Messages.HeikinAshiCandleMessage.Clone/returns;DocStr1116
 T:StockSharp.Messages.CandlePriceLevel/summary;DocStr706
 P:StockSharp.Messages.CandlePriceLevel.Price/summary;Price
 P:StockSharp.Messages.CandlePriceLevel.TotalVolume/summary;DocStr9289
@@ -1478,6 +1484,7 @@ F:StockSharp.Messages.MessageTypes.PortfolioRouteListFinished/summary;DocStr8827
 F:StockSharp.Messages.MessageTypes.SecurityMapping/summary;DocStr608
 F:StockSharp.Messages.MessageTypes.SubscriptionOnline/summary;DocStr608
 F:StockSharp.Messages.MessageTypes.SubscriptionResponse/summary;DocStr608
+F:StockSharp.Messages.MessageTypes.CandleHeikinAshi/summary;DocStr608
 T:StockSharp.Messages.MessageTypeInfo/summary;DocStr11352
 P:StockSharp.Messages.MessageTypeInfo.Type/summary;DocStr9
 P:StockSharp.Messages.MessageTypeInfo.IsMarketData/summary;DocStr11351
@@ -1899,6 +1906,7 @@ F:StockSharp.Messages.MarketDataTypes.CandleRange/summary;DocStr4371
 F:StockSharp.Messages.MarketDataTypes.CandlePnF/summary;DocStr4372
 F:StockSharp.Messages.MarketDataTypes.CandleRenko/summary;DocStr4373
 F:StockSharp.Messages.MarketDataTypes.Board/summary;BoardInfo
+F:StockSharp.Messages.MarketDataTypes.CandleHeikinAshi/summary;HeikinAshi
 T:StockSharp.Messages.MarketDataBuildModes/summary;DocStr10538
 F:StockSharp.Messages.MarketDataBuildModes.LoadAndBuild/summary;DocStr9666
 F:StockSharp.Messages.MarketDataBuildModes.Load/summary;DocStr9667

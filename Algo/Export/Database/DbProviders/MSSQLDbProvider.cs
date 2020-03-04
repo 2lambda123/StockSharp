@@ -65,8 +65,12 @@ namespace StockSharp.Algo.Export.Database.DbProviders
 				throw new ArgumentNullException(nameof(parameters));
 
 			var sb = new StringBuilder();
-			var where = table.Columns.Where(c => c.IsPrimaryKey).Select(c => "{0} = @{0}".Put(c.Name)).Join(" AND ");
-			sb.AppendLine($"IF NOT EXISTS (SELECT * FROM {table.Name} WHERE {where})");
+			var where = table.Columns.Where(c => c.IsPrimaryKey).Select(c => $"{c.Name} = @{c.Name}").Join(" AND ");
+
+			if (!where.IsEmpty())
+				where = $"WHERE {where}";
+
+			sb.AppendLine($"IF NOT EXISTS (SELECT * FROM {table.Name} {where})");
 			sb.AppendLine("BEGIN");
 			sb.Append("INSERT INTO ");
 			sb.Append(table.Name);
@@ -138,15 +142,17 @@ namespace StockSharp.Algo.Export.Database.DbProviders
 		protected override string GetDbType(Type t, object restriction)
 		{
 			if (t == typeof(DateTimeOffset))
-				return "DATETIMEOFFSET";
+				return "datetimeoffset";
 			if (t == typeof(DateTime))
-				return "DATETIME2";
+				return "datetime2";
 			if (t == typeof(TimeSpan))
-				return "TIME";
+				return "time";
 			if (t == typeof(Guid))
-				return "GUID";
+				return "guid";
 			if (t == typeof(bool))
 				return "bit";
+			if (t == typeof(byte))
+				return "tinyint";
 
 			return base.GetDbType(t, restriction);
 		}

@@ -241,6 +241,12 @@ T:StockSharp.Algo.Candles.Compression.RenkoCandleBuilder/summary;DocStr505
 M:StockSharp.Algo.Candles.Compression.RenkoCandleBuilder.#ctor(StockSharp.Algo.Storages.IExchangeInfoProvider)/summary;DocStr1
 M:StockSharp.Algo.Candles.Compression.RenkoCandleBuilder.#ctor(StockSharp.Algo.Storages.IExchangeInfoProvider)/param/exchangeInfoProvider;DocStr8927
 M:StockSharp.Algo.Candles.Compression.RenkoCandleBuilder.Process(StockSharp.Messages.MarketDataMessage,StockSharp.Messages.CandleMessage,StockSharp.Algo.Candles.Compression.ICandleBuilderValueTransform,System.Collections.Generic.IList{StockSharp.Messages.CandleMessage})/inheritdoc;DocStr8459
+T:StockSharp.Algo.Candles.Compression.HeikinAshiCandleBuilder/summary;DocStr505
+M:StockSharp.Algo.Candles.Compression.HeikinAshiCandleBuilder.#ctor(StockSharp.Algo.Storages.IExchangeInfoProvider)/summary;DocStr1
+M:StockSharp.Algo.Candles.Compression.HeikinAshiCandleBuilder.#ctor(StockSharp.Algo.Storages.IExchangeInfoProvider)/param/exchangeInfoProvider;DocStr8927
+M:StockSharp.Algo.Candles.Compression.HeikinAshiCandleBuilder.CreateCandle(StockSharp.Messages.MarketDataMessage,StockSharp.Messages.HeikinAshiCandleMessage,StockSharp.Algo.Candles.Compression.ICandleBuilderValueTransform)/inheritdoc;DocStr8459
+M:StockSharp.Algo.Candles.Compression.HeikinAshiCandleBuilder.IsCandleFinishedBeforeChange(StockSharp.Messages.MarketDataMessage,StockSharp.Messages.HeikinAshiCandleMessage,StockSharp.Algo.Candles.Compression.ICandleBuilderValueTransform)/inheritdoc;DocStr8459
+M:StockSharp.Algo.Candles.Compression.HeikinAshiCandleBuilder.UpdateCandle(StockSharp.Messages.MarketDataMessage,StockSharp.Messages.HeikinAshiCandleMessage,StockSharp.Algo.Candles.Compression.ICandleBuilderValueTransform)/inheritdoc;DocStr8459
 T:StockSharp.Algo.Candles.Compression.ICandleBuilder/summary;DocStr472
 P:StockSharp.Algo.Candles.Compression.ICandleBuilder.CandleType/summary;DocStr475
 M:StockSharp.Algo.Candles.Compression.ICandleBuilder.Process(StockSharp.Messages.MarketDataMessage,StockSharp.Messages.CandleMessage,StockSharp.Algo.Candles.Compression.ICandleBuilderValueTransform)/summary;DocStr486
@@ -589,6 +595,9 @@ P:StockSharp.Algo.Candles.RenkoCandle.BoxSize/summary;DocStr656
 P:StockSharp.Algo.Candles.RenkoCandle.Arg/inheritdoc;DocStr8459
 M:StockSharp.Algo.Candles.RenkoCandle.Clone/summary;DocStr643
 M:StockSharp.Algo.Candles.RenkoCandle.Clone/returns;DocStr1116
+T:StockSharp.Algo.Candles.HeikinAshiCandle/summary;DocStr11681
+M:StockSharp.Algo.Candles.HeikinAshiCandle.Clone/summary;DocStr643
+M:StockSharp.Algo.Candles.HeikinAshiCandle.Clone/returns;DocStr1116
 T:StockSharp.Algo.Candles.ICandleManagerContainer/summary;DocStr509
 P:StockSharp.Algo.Candles.ICandleManagerContainer.CandlesKeepTime/summary;DocStr528
 P:StockSharp.Algo.Candles.ICandleManagerContainer.CandlesKeepTime/remarks;DocStr529
@@ -7695,6 +7704,11 @@ M:StockSharp.Algo.MessageConverterHelper.CreateCandleMessage(System.Type)/summar
 M:StockSharp.Algo.MessageConverterHelper.CreateCandleMessage(System.Type)/param/messageType;DocStr1623
 M:StockSharp.Algo.MessageConverterHelper.CreateCandleMessage(System.Type)/returns;DocStr11645
 P:StockSharp.Algo.MessageConverterHelper.AllCandleTypes/summary;DocStr11646
+M:StockSharp.Algo.MessageConverterHelper.RegisterCandle``2(System.Func{``0},System.Func{``1})/summary;DocStr11647
+M:StockSharp.Algo.MessageConverterHelper.RegisterCandle``2(System.Func{``0},System.Func{``1})/typeparam/TCandle;DocStr8674
+M:StockSharp.Algo.MessageConverterHelper.RegisterCandle``2(System.Func{``0},System.Func{``1})/typeparam/TMessage;DocStr1623
+M:StockSharp.Algo.MessageConverterHelper.RegisterCandle``2(System.Func{``0},System.Func{``1})/param/candleCreator;DocStr11648
+M:StockSharp.Algo.MessageConverterHelper.RegisterCandle``2(System.Func{``0},System.Func{``1})/param/candleMessageCreator;DocStr11648
 M:StockSharp.Algo.MessageConverterHelper.RegisterCandle(System.Type,System.Type,System.Func{StockSharp.Algo.Candles.Candle},System.Func{StockSharp.Messages.CandleMessage})/summary;DocStr11647
 M:StockSharp.Algo.MessageConverterHelper.RegisterCandle(System.Type,System.Type,System.Func{StockSharp.Algo.Candles.Candle},System.Func{StockSharp.Messages.CandleMessage})/param/candleType;DocStr8674
 M:StockSharp.Algo.MessageConverterHelper.RegisterCandle(System.Type,System.Type,System.Func{StockSharp.Algo.Candles.Candle},System.Func{StockSharp.Messages.CandleMessage})/param/messageType;DocStr1623
