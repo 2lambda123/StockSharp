@@ -16,10 +16,5 @@
         <dependency id="TimeZoneConverter" version="3.2.0" exclude="Build,Analyzers" />
       </group>
     </dependencies>
-    <frameworkAssemblies>
-      <frameworkAssembly assemblyName="PresentationCore" targetFramework=".NETFramework4.0" />
-      <frameworkAssembly assemblyName="PresentationFramework" targetFramework=".NETFramework4.0" />
-      <frameworkAssembly assemblyName="WindowsBase" targetFramework=".NETFramework4.0" />
-    </frameworkAssemblies>
   </metadata>
 </package>

@@ -24,6 +24,7 @@
         <dependency id="Ecng.Reflection" version="1.0.0" exclude="Build,Analyzers" />
         <dependency id="Ecng.Serialization" version="1.0.0" exclude="Build,Analyzers" />
         <dependency id="Squid-Box.SevenZipSharp" version="1.2.242" exclude="Build,Analyzers" />
+        <dependency id="System.Management" version="4.7.0" exclude="Build,Analyzers" />
       </group>
     </dependencies>
     <frameworkAssemblies>
