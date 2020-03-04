@@ -37,7 +37,4 @@
     <ProjectReference Include="..\Localization\Localization.csproj" />
     <ProjectReference Include="..\Logging\Logging.csproj" />
   </ItemGroup>
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1' ">
-    <Compile Remove="IDailyInfoSoap.cs" />
-  </ItemGroup>
 </Project>

@@ -182,6 +182,7 @@ namespace StockSharp.Algo.Storages.Remote
 			}
 		}
 
+#if NETFRAMEWORK
 		/// <inheritdoc />
 		protected override ChannelFactory<IRemoteStorage> CreateChannel()
 		{
@@ -209,6 +210,7 @@ namespace StockSharp.Algo.Storages.Remote
 
 			return f;
 		}
+#endif
 
 		/// <summary>
 		/// Download securities by the specified criteria.

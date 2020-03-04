@@ -5,8 +5,6 @@
     <RootNamespace>StockSharp.Localization</RootNamespace>
     <AssemblyName>StockSharp.Localization</AssemblyName>
     <TargetFrameworks>net40;netcoreapp3.1</TargetFrameworks>
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\StockSharp.snk</AssemblyOriginatorKeyFile>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>

@@ -5,8 +5,6 @@
     <RootNamespace>StockSharp.Logging</RootNamespace>
     <AssemblyName>StockSharp.Logging</AssemblyName>
     <TargetFrameworks>net40;netcoreapp3.1</TargetFrameworks>
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\StockSharp.snk</AssemblyOriginatorKeyFile>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
@@ -31,8 +29,5 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Localization\Localization.csproj" />
-  </ItemGroup>
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1' ">
-    <Compile Remove="ErrorLoggingAttribute.cs" />
   </ItemGroup>
 </Project>

@@ -25,6 +25,7 @@ namespace StockSharp.Community
 		{
 		}
 
+#if NETFRAMEWORK
 		/// <inheritdoc />
 		protected override ChannelFactory<IUpdateService> CreateChannel()
 		{
@@ -41,6 +42,7 @@ namespace StockSharp.Community
 
 			return f;
 		}
+#endif
 
 		private ProductData[] _products;
 

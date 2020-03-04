@@ -18,42 +18,25 @@
     <DebugType>none</DebugType>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="Strategies\Messages\IStrategyService.cs" />
-    <Compile Remove="Strategies\Messages\StrategyClient.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="Ecng.Common" Version="1.0.0" />
     <PackageReference Include="Ecng.Data" Version="1.0.0" />
     <PackageReference Include="Ecng.Collections" Version="1.0.0" />
     <PackageReference Include="Ecng.ComponentModel" Version="1.0.0" />
     <PackageReference Include="Ecng.Serialization" Version="1.0.0" />
+    <PackageReference Include="Ecng.Interop" Version="1.0.0" />
     <ProjectReference Include="..\BusinessEntities\BusinessEntities.csproj" />
     <ProjectReference Include="..\Localization\Localization.csproj" />
     <ProjectReference Include="..\Logging\Logging.csproj" />
     <ProjectReference Include="..\Messages\Messages.csproj" />
+    <ProjectReference Include="..\Community\Community.csproj" />
   </ItemGroup>
   <ItemGroup Condition=" '$(TargetFramework)' == 'net46' ">
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
-    <Reference Include="WindowsBase" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.ServiceModel" />
-    <PackageReference Include="Ecng.Xaml" Version="1.0.0" />
-    <ProjectReference Include="..\Community\Community.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\StockSharpAssemblyInfo.cs" Link="Properties\StockSharpAssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1' ">
-    <Compile Remove="Export\ExcelExporter.cs" />
-    <Compile Remove="Storages\Remote\IRemoteStorage.cs" />
-    <Compile Remove="Storages\Remote\RemoteStorage.cs" />
-    <Compile Remove="Storages\Remote\RemoteStorageClient.cs" />
-    <Compile Remove="Storages\RemoteMarketDataDrive.cs" />
-    <Compile Remove="Strategies\Analytics\DailyHighestVolumeStrategy.cs" />
-    <Compile Remove="Strategies\Analytics\PriceVolumeDistributionStrategy.cs" />
-    <Compile Remove="Strategies\Reporting\ExcelStrategyReport.cs" />
   </ItemGroup>
 </Project>
