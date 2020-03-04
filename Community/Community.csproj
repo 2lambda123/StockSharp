@@ -39,5 +39,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Localization\Localization.csproj" />
     <ProjectReference Include="..\Logging\Logging.csproj" />
+    <ProjectReference Include="..\Messages\Messages.csproj" />
   </ItemGroup>
 </Project>

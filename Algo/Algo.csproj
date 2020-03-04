@@ -18,11 +18,15 @@
     <DebugType>none</DebugType>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Ecng.Common" Version="1.0.0"/>
-    <PackageReference Include="Ecng.Data" Version="1.0.0"/>
-    <PackageReference Include="Ecng.Collections" Version="1.0.0"/>
-    <PackageReference Include="Ecng.ComponentModel" Version="1.0.0"/>
-    <PackageReference Include="Ecng.Serialization" Version="1.0.0"/>
+    <Compile Remove="Strategies\Messages\IStrategyService.cs" />
+    <Compile Remove="Strategies\Messages\StrategyClient.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Ecng.Common" Version="1.0.0" />
+    <PackageReference Include="Ecng.Data" Version="1.0.0" />
+    <PackageReference Include="Ecng.Collections" Version="1.0.0" />
+    <PackageReference Include="Ecng.ComponentModel" Version="1.0.0" />
+    <PackageReference Include="Ecng.Serialization" Version="1.0.0" />
     <ProjectReference Include="..\BusinessEntities\BusinessEntities.csproj" />
     <ProjectReference Include="..\Localization\Localization.csproj" />
     <ProjectReference Include="..\Logging\Logging.csproj" />
@@ -30,13 +34,13 @@
   </ItemGroup>
   <ItemGroup Condition=" '$(TargetFramework)' == 'net46' ">
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Core"/>
+    <Reference Include="System.Core" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="WindowsBase" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.ServiceModel" />
-    <PackageReference Include="Ecng.Xaml" Version="1.0.0"/>
+    <PackageReference Include="Ecng.Xaml" Version="1.0.0" />
     <ProjectReference Include="..\Community\Community.csproj" />
   </ItemGroup>
   <ItemGroup>
