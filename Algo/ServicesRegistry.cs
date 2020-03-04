@@ -154,20 +154,20 @@ namespace StockSharp.Algo
 		/// </summary>
 		public static IProfileClient ProfileClient => ConfigManager.GetService<IProfileClient>();
 
-		///// <summary>
-		///// The client for access to <see cref="IStrategyService"/>.
-		///// </summary>
-		//public static IStrategyClient StrategyClient => ConfigManager.GetService<IStrategyClient>();
+		/// <summary>
+		/// The client for access to <see cref="IStrategyService"/>.
+		/// </summary>
+		public static IStrategyClient StrategyClient => ConfigManager.GetService<IStrategyClient>();
 
-		///// <summary>
-		///// The client for access to the StockSharp authentication service.
-		///// </summary>
-		//public static IAuthenticationClient AuthenticationClient => ConfigManager.GetService<IAuthenticationClient>();
+		/// <summary>
+		/// The client for access to the StockSharp authentication service.
+		/// </summary>
+		public static IAuthenticationClient AuthenticationClient => ConfigManager.GetService<IAuthenticationClient>();
 
-		///// <summary>
-		///// The client for access to the StockSharp authentication service.
-		///// </summary>
-		//public static IAuthenticationClient TryAuthenticationClient => ConfigManager.TryGetService<IAuthenticationClient>();
+		/// <summary>
+		/// The client for access to the StockSharp authentication service.
+		/// </summary>
+		public static IAuthenticationClient TryAuthenticationClient => ConfigManager.TryGetService<IAuthenticationClient>();
 
 		/// <summary>
 		/// The message adapter's provider.
@@ -204,10 +204,10 @@ namespace StockSharp.Algo
 		/// </summary>
 		public static ICompilerService TryCompilerService => ConfigManager.TryGetService<ICompilerService>();
 
-		///// <summary>
-		///// Excel provider.
-		///// </summary>
-		//public static IExcelWorkerProvider ExcelProvider => ConfigManager.TryGetService<IExcelWorkerProvider>();
+		/// <summary>
+		/// Excel provider.
+		/// </summary>
+		public static IExcelWorkerProvider ExcelProvider => ConfigManager.TryGetService<IExcelWorkerProvider>();
 
 		/// <summary>
 		/// Snapshot storage registry.
