@@ -23,10 +23,16 @@
         <dependency id="Ecng.Localization" version="1.0.0" exclude="Build,Analyzers" />
         <dependency id="Ecng.Reflection" version="1.0.0" exclude="Build,Analyzers" />
         <dependency id="Ecng.Serialization" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Windows.Compatibility" version="3.1.0" exclude="Build,Analyzers" />
         <dependency id="Squid-Box.SevenZipSharp" version="1.2.242" exclude="Build,Analyzers" />
         <dependency id="System.Management" version="4.7.0" exclude="Build,Analyzers" />
       </group>
     </dependencies>
+    <frameworkReferences>
+      <group targetFramework=".NETCoreApp3.1">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WindowsForms" />
+      </group>
+    </frameworkReferences>
     <frameworkAssemblies>
       <frameworkAssembly assemblyName="Accessibility" targetFramework=".NETFramework4.0" />
       <frameworkAssembly assemblyName="Microsoft.VisualBasic" targetFramework=".NETFramework4.0" />

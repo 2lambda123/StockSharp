@@ -27,27 +27,6 @@
     <PackageReference Include="Ecng.Xaml.Charting" Version="1.0.0"/>
     <PackageReference Include="Ecng.Xaml.DevExp" Version="1.0.0"/>
     <PackageReference Include="Ecng.Backup" Version="1.0.0"/>
-    <Reference Include="DevExpress.Xpf.Themes.Office2016White.v19.2">
-      <HintPath>..\..\..\References\DevExpress.Xpf.Themes.Office2016White.v19.2.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Data.v19.2">
-      <HintPath>..\..\..\References\DevExpress.Data.v19.2.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Xpf.Core.v19.2">
-      <HintPath>..\..\..\References\DevExpress.Xpf.Core.v19.2.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Xpf.Grid.v19.2">
-      <HintPath>..\..\..\References\DevExpress.Xpf.Grid.v19.2.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Xpf.Grid.v19.2.Core">
-      <HintPath>..\..\..\References\DevExpress.Xpf.Grid.v19.2.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Xpf.Layout.v19.2.Core">
-      <HintPath>..\..\..\References\DevExpress.Xpf.Layout.v19.2.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Xpf.LayoutControl.v19.2">
-      <HintPath>..\..\..\References\DevExpress.Xpf.LayoutControl.v19.2.dll</HintPath>
-    </Reference>
     <Reference Include="StockSharp.Algo.Strategies">
       <HintPath>..\..\..\References\StockSharp.Algo.Strategies.dll</HintPath>
     </Reference>

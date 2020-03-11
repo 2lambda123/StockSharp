@@ -17,6 +17,7 @@
         <dependency id="Ecng.Reflection" version="1.0.0" exclude="Build,Analyzers" />
         <dependency id="Ecng.Serialization.FieldFactories" version="1.0.0" exclude="Build,Analyzers" />
         <dependency id="Ecng.Serialization" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Windows.Compatibility" version="3.1.0" exclude="Build,Analyzers" />
         <dependency id="MimeTypes" version="1.1.0" exclude="Build,Analyzers" />
         <dependency id="Newtonsoft.Json" version="12.0.3" exclude="Build,Analyzers" />
       </group>
@@ -29,6 +30,7 @@
         <dependency id="Ecng.Reflection" version="1.0.0" exclude="Build,Analyzers" />
         <dependency id="Ecng.Serialization.FieldFactories" version="1.0.0" exclude="Build,Analyzers" />
         <dependency id="Ecng.Serialization" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Windows.Compatibility" version="3.1.0" exclude="Build,Analyzers" />
         <dependency id="MimeTypes" version="1.1.0" exclude="Build,Analyzers" />
         <dependency id="NamedPipeServerStream.NetFrameworkVersion" version="1.0.2" exclude="Build,Analyzers" />
         <dependency id="Newtonsoft.Json" version="12.0.3" exclude="Build,Analyzers" />

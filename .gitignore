@@ -142,6 +142,7 @@ publish/
 packages/*
 !packages/ecng.*
 !packages/protobuf-net
+!packages/stocksharp.xaml*
 ## TODO: If the tool you use requires repositories.config uncomment the next line
 #!packages/repositories.config
 

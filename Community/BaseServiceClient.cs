@@ -56,7 +56,6 @@ namespace StockSharp.Community
 		/// </summary>
 		public bool IsConnected { get; private set; }
 
-#if NETFRAMEWORK
 		/// <summary>
 		/// Create WCF channel.
 		/// </summary>
@@ -77,19 +76,16 @@ namespace StockSharp.Community
 				UseDefaultWebProxy = true
 			}, new EndpointAddress(Address));
 		}
-#endif
 
 		/// <summary>
 		/// To connect. The connection is established automatically when the method <see cref="Invoke"/> or <see cref="Invoke{TService}"/> is called.
 		/// </summary>
 		public virtual void Connect()
 		{
-#if NETFRAMEWORK
 			_factory = ChannelHelper.Create(_endpointName, CreateChannel);
 
 			if (_hasCallbacks)
 				_service = _factory.CreateChannel();
-#endif
 
 			OnConnect();
 

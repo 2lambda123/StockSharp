@@ -28,9 +28,6 @@
     <PackageReference Include="Ecng.Configuration" Version="1.0.0"/>
     <PackageReference Include="Ecng.Xaml" Version="1.0.0"/>
     <PackageReference Include="Ecng.Backup" Version="1.0.0"/>
-    <Reference Include="DevExpress.Xpf.Themes.Office2016White.v19.2">
-      <HintPath>..\..\..\References\DevExpress.Xpf.Themes.Office2016White.v19.2.dll</HintPath>
-    </Reference>
     <Reference Include="StockSharp.Xaml">
       <HintPath>..\..\..\References\StockSharp.Xaml.dll</HintPath>
     </Reference>

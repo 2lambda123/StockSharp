@@ -12,7 +12,18 @@
         <dependency id="Ecng.Common" version="1.0.0" exclude="Build,Analyzers" />
         <dependency id="Ecng.Xaml" version="1.0.0" exclude="Build,Analyzers" />
       </group>
+      <group targetFramework=".NETCoreApp3.1">
+        <dependency id="Ecng.Common" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Ecng.Xaml" version="1.0.0" exclude="Build,Analyzers" />
+      </group>
     </dependencies>
+    <frameworkReferences>
+      <group targetFramework=".NETCoreApp3.1">
+        <frameworkReference name="Microsoft.WindowsDesktop.App" />
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WindowsForms" />
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WPF" />
+      </group>
+    </frameworkReferences>
     <frameworkAssemblies>
       <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework=".NETFramework4.0" />
       <frameworkAssembly assemblyName="PresentationCore" targetFramework=".NETFramework4.0" />

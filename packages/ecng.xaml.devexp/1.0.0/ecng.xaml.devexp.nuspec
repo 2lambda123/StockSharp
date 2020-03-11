@@ -20,8 +20,30 @@
         <dependency id="Ecng.Reflection" version="1.0.0" exclude="Build,Analyzers" />
         <dependency id="Ecng.Serialization" version="1.0.0" exclude="Build,Analyzers" />
         <dependency id="Ecng.Xaml" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="StockSharp.Ecng.Xaml.DXRefs" version="1.0.1" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETCoreApp3.1">
+        <dependency id="Ecng.Collections" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Ecng.Common" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Ecng.ComponentModel" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Ecng.Configuration" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Ecng.Data.Providers" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Ecng.Data" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Ecng.Interop" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Ecng.Localization" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Ecng.Reflection" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Ecng.Serialization" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Ecng.Xaml" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="StockSharp.Ecng.Xaml.DXRefs" version="1.0.1" exclude="Build,Analyzers" />
       </group>
     </dependencies>
+    <frameworkReferences>
+      <group targetFramework=".NETCoreApp3.1">
+        <frameworkReference name="Microsoft.WindowsDesktop.App" />
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WindowsForms" />
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WPF" />
+      </group>
+    </frameworkReferences>
     <frameworkAssemblies>
       <frameworkAssembly assemblyName="PresentationCore" targetFramework=".NETFramework4.6" />
       <frameworkAssembly assemblyName="PresentationFramework" targetFramework=".NETFramework4.6" />

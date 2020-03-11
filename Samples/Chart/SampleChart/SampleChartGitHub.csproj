@@ -4,10 +4,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>SampleChart</RootNamespace>
     <AssemblyName>SampleChart</AssemblyName>
-    <TargetFramework>net46</TargetFramework>
+    <TargetFrameworks>net461;netcoreapp3.1</TargetFrameworks>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <UseWPF>true</UseWPF>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
@@ -30,34 +31,7 @@
     <PackageReference Include="Ecng.Xaml.Charting" Version="1.0.0"/>
     <PackageReference Include="Ecng.Xaml.DevExp" Version="1.0.0"/>
     <PackageReference Include="Ecng.Backup" Version="1.0.0"/>
-    <Reference Include="DevExpress.Xpf.Themes.Office2016White.v19.2">
-      <HintPath>..\..\..\References\DevExpress.Xpf.Themes.Office2016White.v19.2.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Data.v19.2">
-      <HintPath>..\..\..\References\DevExpress.Data.v19.2.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Xpf.Core.v19.2">
-      <HintPath>..\..\..\References\DevExpress.Xpf.Core.v19.2.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Xpf.Themes.MetropolisDark.v19.2">
-      <HintPath>..\..\..\References\DevExpress.Xpf.Themes.MetropolisDark.v19.2.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Xpf.Themes.MetropolisLight.v19.2">
-      <HintPath>..\..\..\References\DevExpress.Xpf.Themes.MetropolisLight.v19.2.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Xpf.Themes.Office2016Black.v19.2">
-      <HintPath>..\..\..\References\DevExpress.Xpf.Themes.Office2016Black.v19.2.dll</HintPath>
-    </Reference>
-    <Reference Include="StockSharp.Xaml">
-      <HintPath>..\..\..\References\StockSharp.Xaml.dll</HintPath>
-    </Reference>
-    <Reference Include="StockSharp.Xaml.Charting">
-      <HintPath>..\..\..\References\StockSharp.Xaml.Charting.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Xaml" />
-    <Reference Include="WindowsBase" />
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
+    <PackageReference Include="StockSharp.Xaml.Charting" Version="1.0.0" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\..\StockSharpAssemblyInfo.cs" Link="Properties\StockSharpAssemblyInfo.cs" />
