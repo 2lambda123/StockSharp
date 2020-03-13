@@ -342,8 +342,6 @@ P:StockSharp.Fix.Dialects.IFastNetworkFeed.FeedGroup/summary;DocStr9951
 M:StockSharp.Fix.Dialects.IFastNetworkFeed.Close/summary;XamlStr171
 M:StockSharp.Fix.Dialects.IFastNetworkFeed.Dump(System.Collections.Generic.IDictionary{Ecng.Net.MulticastSourceAddress,System.String})/summary;DocStr9962
 M:StockSharp.Fix.Dialects.IFastNetworkFeed.Dump(System.Collections.Generic.IDictionary{Ecng.Net.MulticastSourceAddress,System.String})/param/dumpFiles;DocStr9963
-M:StockSharp.Fix.Dialects.IFastNetworkFeed.MakeGap(System.Int32)/summary;GapsDesc
-M:StockSharp.Fix.Dialects.IFastNetworkFeed.MakeGap(System.Int32)/param/gapSize;DocStr11677
 T:StockSharp.Fix.Dialects.Lmax.LmaxFixDialect/summary;DocStr11591
 M:StockSharp.Fix.Dialects.Lmax.LmaxFixDialect.#ctor(Ecng.Common.IdGenerator)/summary;DocStr1
 M:StockSharp.Fix.Dialects.Lmax.LmaxFixDialect.#ctor(Ecng.Common.IdGenerator)/param/transactionIdGenerator;DocStr3311
@@ -721,7 +719,6 @@ F:StockSharp.Fix.FixMessageTypes.ResendRequest/summary;DocStr608
 F:StockSharp.Fix.FixMessageTypes.UserRequest/summary;DocStr608
 F:StockSharp.Fix.FixMessageTypes.UserResponse/summary;DocStr608
 F:StockSharp.Fix.FixMessageTypes.UserForceLogoff/summary;DocStr608
-F:StockSharp.Fix.FixMessageTypes.MakeGap/summary;DocStr608
 T:StockSharp.Fix.FixUserRequestTypes/summary;DocStr9867
 F:StockSharp.Fix.FixUserRequestTypes.LogoffForce/summary;DocStr9869
 F:StockSharp.Fix.FixUserRequestTypes.ChangePassword/summary;XamlStr665
@@ -749,14 +746,6 @@ P:StockSharp.Fix.FixUserResponseMessage.ResponseType/summary;DocStr9881
 M:StockSharp.Fix.FixUserResponseMessage.CopyTo(StockSharp.Fix.FixUserResponseMessage)/inheritdoc;DocStr8459
 T:StockSharp.Fix.FixUserForceLogoffMessage/summary;DocStr9882
 M:StockSharp.Fix.FixUserForceLogoffMessage.#ctor/summary;DocStr93
-T:StockSharp.Fix.FixMakeGapMessage/summary;GapsDesc
-M:StockSharp.Fix.FixMakeGapMessage.#ctor/summary;DocStr93
-P:StockSharp.Fix.FixMakeGapMessage.GapSize/summary;DocStr11677
-P:StockSharp.Fix.FixMakeGapMessage.TransactionId/inheritdoc;DocStr8459
-M:StockSharp.Fix.FixMakeGapMessage.Clone/summary;DocStr643
-M:StockSharp.Fix.FixMakeGapMessage.Clone/returns;DocStr1116
-M:StockSharp.Fix.FixMakeGapMessage.CopyTo(StockSharp.Fix.FixMakeGapMessage)/summary;DocStr629
-M:StockSharp.Fix.FixMakeGapMessage.CopyTo(StockSharp.Fix.FixMakeGapMessage)/param/destination;DocStr630
 T:StockSharp.Fix.FixServer/summary;DocStr3152
 M:StockSharp.Fix.FixServer.ReadOrderCondition(StockSharp.Fix.Native.IFixReader,StockSharp.Fix.Native.FixTags,System.Func{StockSharp.Messages.OrderCondition})/summary;DocStr8772
 M:StockSharp.Fix.FixServer.ReadOrderCondition(StockSharp.Fix.Native.IFixReader,StockSharp.Fix.Native.FixTags,System.Func{StockSharp.Messages.OrderCondition})/param/reader;DocStr3154
@@ -2331,6 +2320,7 @@ P:StockSharp.Fix.FixMessageAdapter.CandlesBuildFrom/inheritdoc;DocStr8459
 M:StockSharp.Fix.FixMessageAdapter.CreateOrderLogMarketDepthBuilder(StockSharp.Messages.SecurityId)/inheritdoc;DocStr8459
 M:StockSharp.Fix.FixMessageAdapter.GetHistoryStepSize(StockSharp.Messages.DataType,System.TimeSpan@)/inheritdoc;DocStr8459
 M:StockSharp.Fix.FixMessageAdapter.OnSendInMessage(StockSharp.Messages.Message)/inheritdoc;DocStr8459
+F:StockSharp.Fix.FixMessageAdapter.DefaultHeartbeatInterval/summary;DocStr9884
 P:StockSharp.Fix.FixMessageAdapter.FixDialect/summary;DocStr9454
 P:StockSharp.Fix.FixMessageAdapter.Address/summary;ServerAddress
 P:StockSharp.Fix.FixMessageAdapter.Dialect/summary;DocStr8806
