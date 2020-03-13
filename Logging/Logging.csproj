@@ -20,9 +20,14 @@
     <PackageReference Include="Ecng.ComponentModel" Version="1.0.0" />
     <PackageReference Include="Ecng.Serialization" Version="1.0.0" />
     <PackageReference Include="Ecng.Configuration" Version="1.0.0" />
-    <PackageReference Include="Ecng.Interop" Version="1.0.0" />
     <PackageReference Include="Ecng.Net" Version="1.0.0" />
     <PackageReference Include="Ecng.Localization" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net40' ">
+    <PackageReference Include="Ecng.Interop" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1' ">
+    <PackageReference Include="Ecng.Interop.Core" Version="1.0.0" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\StockSharpAssemblyInfo.cs" Link="Properties\StockSharpAssemblyInfo.cs" />

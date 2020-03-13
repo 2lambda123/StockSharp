@@ -23,7 +23,7 @@
     <PackageReference Include="Ecng.Collections" Version="1.0.0" />
     <PackageReference Include="Ecng.ComponentModel" Version="1.0.0" />
     <PackageReference Include="Ecng.Serialization" Version="1.0.0" />
-    <PackageReference Include="Ecng.Interop" Version="1.0.0" />
+    <PackageReference Include="Ecng.Interop.Core" Version="1.0.0" />
     <ProjectReference Include="..\BusinessEntities\BusinessEntities.csproj" />
     <ProjectReference Include="..\Localization\Localization.csproj" />
     <ProjectReference Include="..\Logging\Logging.csproj" />
