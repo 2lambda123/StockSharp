@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
+    <ProductVersion>8.0.30703</ProductVersion>
     <ProjectGuid>{FE5CE31E-0461-410F-874F-65EDE074C89C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>SampleLogging</RootNamespace>
-    <AssemblyName>SampleLogging</AssemblyName>
-    <TargetFramework>net46</TargetFramework>
+    <TargetFramework>net461</TargetFramework>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
     <UseWPF>true</UseWPF>
-    <IsPackable>false</IsPackable>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -20,18 +20,20 @@
     <ApplicationIcon>..\..\..\References\stocksharp.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Ecng.Common" Version="1.0.0"/>
-    <PackageReference Include="Ecng.Collections" Version="1.0.0"/>
-    <PackageReference Include="Ecng.ComponentModel" Version="1.0.0"/>
-    <PackageReference Include="Ecng.Serialization" Version="1.0.0"/>
-    <PackageReference Include="Ecng.Configuration" Version="1.0.0"/>
-    <PackageReference Include="Ecng.Xaml" Version="1.0.0"/>
-    <PackageReference Include="Ecng.Xaml.Charting" Version="1.0.0"/>
-    <PackageReference Include="Ecng.Xaml.DevExp" Version="1.0.0"/>
-    <PackageReference Include="Ecng.Backup" Version="1.0.0"/>
+    <Reference Include="DevExpress.Xpf.Themes.Office2016White.v19.2">
+      <HintPath>..\..\..\References\DevExpress.Xpf.Themes.Office2016White.v19.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Ecng.Common">
+      <HintPath>..\..\..\References\Ecng.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ecng.Serialization">
+      <HintPath>..\..\..\References\Ecng.Serialization.dll</HintPath>
+    </Reference>
     <Reference Include="StockSharp.Xaml">
       <HintPath>..\..\..\References\StockSharp.Xaml.dll</HintPath>
     </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
     <Reference Include="System.Xaml" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
@@ -39,11 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\BusinessEntities\BusinessEntities.csproj" />
-    <ProjectReference Include="..\..\..\Logging\Logging.csproj" />
+    <ProjectReference Include="..\..\..\Localization\Localization.csproj" />
+    <ProjectReference Include="..\..\..\Messages\Messages.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="..\..\..\References\stocksharp.ico">
+	<ItemGroup>
+    <Content Include="..\..\..\References\stocksharp.ico">
       <Link>stocksharp.ico</Link>
-    </Resource>
+    </Content>
   </ItemGroup>
 </Project>
