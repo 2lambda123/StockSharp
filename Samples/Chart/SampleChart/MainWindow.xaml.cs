@@ -128,7 +128,7 @@
 
 			ConfigManager.RegisterService<IBackupService>(new YandexDiskService());
 
-			HistoryPath.Folder = @"..\..\..\..\..\Testing\HistoryData\".ToFullPath();
+			HistoryPath.Folder = @"..\..\..\..\Testing\HistoryData\".ToFullPath();
 
 			Chart.SecurityProvider = _securityProvider;
 
@@ -261,12 +261,14 @@
 
 		private void LoadData(CandleSeries series)
 		{
+			var msgType = series.CandleType.ToCandleMessageType();
+
 			_transactionId = _transactionIdGenerator.GetNextId();
 			_holder.Clear();
 			_holder.CreateCandleSeries(_transactionId, series);
 
 			_candleTransform.Process(new ResetMessage());
-			_candleBuilder = _builderProvider.Get(series.CandleType);
+			_candleBuilder = _builderProvider.Get(msgType);
 
 			var storage = new StorageRegistry();
 
@@ -321,7 +323,7 @@
 				}
 				else
 				{
-					foreach (var candleMsg in storage.GetCandleMessageStorage(series.CandleType, series.Security.ToSecurityId(), series.Arg, new LocalMarketDataDrive(path), format).Load())
+					foreach (var candleMsg in storage.GetCandleMessageStorage(msgType, series.Security.ToSecurityId(), series.Arg, new LocalMarketDataDrive(path), format).Load())
 					{
 						if (candleMsg.State != CandleStates.Finished)
 							candleMsg.State = CandleStates.Finished;
@@ -713,7 +715,7 @@
 			}
 		}
 
-		class TestMarketDataProvider : IMarketDataProviderEx
+		private class TestMarketDataProvider : IMarketDataProviderEx
 		{
 			public event Action<Security, IEnumerable<KeyValuePair<Level1Fields, object>>, DateTimeOffset, DateTimeOffset> ValuesChanged;
 
@@ -809,14 +811,7 @@
 			Subscription IMarketDataProviderEx.RegisterFilteredMarketDepth(Security security) => null;
 			void IMarketDataProviderEx.UnRegisterFilteredMarketDepth(Security security) { }
 
-            public Subscription SubscribeMarketDepth(Security security, DateTimeOffset? @from = null, DateTimeOffset? to = null,
-                long? count = null, MarketDataBuildModes buildMode = MarketDataBuildModes.LoadAndBuild,
-                MarketDataTypes? buildFrom = null, int? maxDepth = null, TimeSpan? refreshSpeed = null,
-                IMessageAdapter adapter = null)
-            {
-                throw new NotImplementedException();
-            }
-
+			Subscription IMarketDataProviderEx.SubscribeMarketDepth(Security security, DateTimeOffset? from, DateTimeOffset? to, long? count, MarketDataBuildModes buildMode, MarketDataTypes? buildFrom, int? maxDepth, TimeSpan? refreshSpeed, IMessageAdapter adapter) => null;
 			void IMarketDataProviderEx.UnSubscribeMarketDepth(Security security) { }
 
 			Subscription IMarketDataProviderEx.SubscribeTrades(Security security, DateTimeOffset? from, DateTimeOffset? to, long? count, MarketDataBuildModes buildMode, MarketDataTypes? buildFrom, IMessageAdapter adapter) => null;
