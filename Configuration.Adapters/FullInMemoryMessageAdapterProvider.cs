@@ -70,7 +70,7 @@ namespace StockSharp.Configuration
 	using StockSharp.Oanda;
 	using StockSharp.Okcoin;
 	using StockSharp.Okex;
-	using StockSharp.OpenECry;
+	//using StockSharp.OpenECry;
 	using StockSharp.Plaza;
 	using StockSharp.Poloniex;
 	using StockSharp.PrizmBit;
@@ -153,7 +153,7 @@ namespace StockSharp.Configuration
 			() => typeof(LmaxMessageAdapter),
 			() => typeof(MicexMessageAdapter),
 			() => typeof(OandaMessageAdapter),
-			() => typeof(OpenECryMessageAdapter),
+			//() => typeof(OpenECryMessageAdapter),
 			() => typeof(PlazaMessageAdapter),
 			() => typeof(LuaFixTransactionMessageAdapter),
 			() => typeof(LuaFixMarketDataMessageAdapter),
