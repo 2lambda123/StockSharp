@@ -24,6 +24,7 @@
     <PackageReference Include="Ecng.ComponentModel" Version="1.0.0" />
     <PackageReference Include="Ecng.Serialization" Version="1.0.0" />
     <PackageReference Include="Ecng.Interop" Version="1.0.0" />
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="3.1.0" />
     <ProjectReference Include="..\BusinessEntities\BusinessEntities.csproj" />
     <ProjectReference Include="..\Localization\Localization.csproj" />
     <ProjectReference Include="..\Logging\Logging.csproj" />
@@ -34,7 +35,6 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.ServiceModel" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\StockSharpAssemblyInfo.cs" Link="Properties\StockSharpAssemblyInfo.cs" />
